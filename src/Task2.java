@@ -12,10 +12,14 @@ public class Task2 {
         int l = Integer.parseInt(m.substring(0, m.length()/2), 2);
         int r = Integer.parseInt(m.substring(m.length()/2), 2);
         int k = Integer.parseInt(key, 2);
-        StringBuilder ans = new StringBuilder(Integer.toBinaryString(r) + Integer.toBinaryString(l ^ k ^ r));
-        while (ans.length() < m.length()) {
-            ans.insert(0, "0");
+        StringBuilder L = new StringBuilder(Integer.toBinaryString(r));
+        StringBuilder R = new StringBuilder(Integer.toBinaryString(l ^ k ^ r));
+        while(L.length() < m.length()/2) {
+            L.insert(0, "0");
         }
-        return ans.toString();
+        while(R.length() < m.length()/2) {
+            R.insert(0, "0");
+        }
+        return L.append(R).toString();
     }
 }
